@@ -1,0 +1,428 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 8, 2026, 9:01:42 AM
+    Author     : NamTQ
+*/
+
+/* Search Page Styles */
+
+/* Clear Search Button */
+.clear-search {
+    position: absolute;
+    right: 3.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    transition: color 0.3s;
+}
+
+.clear-search:hover {
+    color: #4b5563;
+}
+
+.clear-search svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Search Results Main */
+.search-results-main {
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* Search Layout */
+.search-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+/* Sidebar Filters */
+.search-sidebar {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    height: fit-content;
+    position: sticky;
+    top: 5rem;
+}
+
+.filter-section {
+    margin-bottom: 1rem;
+}
+
+.filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1f2937;
+    transition: all 0.3s;
+}
+
+.filter-toggle:hover {
+    background: #f3f4f6;
+}
+
+.filter-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.toggle-icon {
+    margin-left: auto;
+}
+
+/* Filter Groups */
+.filter-group {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 0;
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.filter-header h3 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.filter-collapse {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: #6b7280;
+    transition: transform 0.3s;
+}
+
+.filter-collapse svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.filter-collapse.collapsed svg {
+    transform: rotate(180deg);
+}
+
+.filter-content {
+    transition: all 0.3s;
+}
+
+.filter-content.collapsed {
+    display: none;
+}
+
+/* Brand Filter */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.brand-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+}
+
+.brand-item:hover {
+    border-color: #dc2626;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.brand-item.active {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.brand-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 2rem;
+}
+
+.btn-show-more {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #0066cc;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-show-more:hover {
+    background: #f9fafb;
+    border-color: #0066cc;
+}
+
+/* Price Filter */
+.price-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    cursor: pointer;
+    accent-color: #dc2626;
+}
+
+.checkbox-label {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* Search Content */
+.search-content {
+    flex: 1;
+}
+
+/* Quick Filters */
+.quick-filters {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.quick-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.quick-filter-btn:hover {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.quick-filter-btn.active {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: white;
+}
+
+.quick-filter-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.filter-count {
+    color: #9ca3af;
+    font-size: 0.75rem;
+}
+
+.quick-filter-btn.active .filter-count {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Results Header */
+.results-header {
+    background: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.results-info {
+    font-size: 0.9375rem;
+    color: #4b5563;
+}
+
+.results-info strong {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.sort-options {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.sort-btn {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.sort-btn:hover {
+    border-color: #dc2626;
+    color: #dc2626;
+}
+
+.sort-btn.active {
+    background: #dc2626;
+    border-color: #dc2626;
+    color: white;
+}
+
+/* Search Results Grid */
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+/* Load More */
+.load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.btn-load-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: white;
+    border: 2px solid #dc2626;
+    color: #dc2626;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-load-more:hover {
+    background: #fef2f2;
+}
+
+.btn-load-more svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Product Card Adjustments for Search */
+.search-results-grid .product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .search-layout {
+        grid-template-columns: 250px 1fr;
+    }
+
+    .search-results-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .results-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-layout {
+        grid-template-columns: 280px 1fr;
+    }
+
+    .search-results-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .search-results-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Hide sidebar on mobile by default */
+@media (max-width: 767px) {
+    .search-sidebar {
+        display: none;
+    }
+
+    .search-sidebar.mobile-visible {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        overflow-y: auto;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,446 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 8, 2026, 9:01:00 AM
+    Author     : NamTQ
+*/
+
+/* Breadcrumb */
+.breadcrumb-wrapper {
+    background: white;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.875rem;
+}
+
+.breadcrumb a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #dc2626;
+}
+
+.breadcrumb svg {
+    width: 1rem;
+    height: 1rem;
+    color: #9ca3af;
+}
+
+.breadcrumb span {
+    color: #4b5563;
+}
+
+/* Product Detail Main */
+.product-detail-main {
+    background: #f9fafb;
+    padding: 1.5rem 0;
+    min-height: 100vh;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Product Gallery */
+.product-gallery {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.main-image-wrapper {
+    position: relative;
+    aspect-ratio: 1;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-prev {
+    left: 0.5rem;
+}
+
+.gallery-next {
+    right: 0.5rem;
+}
+
+.gallery-nav svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #4b5563;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scrollbar-width: thin;
+}
+
+.thumbnail {
+    flex-shrink: 0;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.thumbnail:hover {
+    border-color: #dc2626;
+}
+
+.thumbnail.active {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+/* Product Info Panel */
+.product-info-panel {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.product-detail-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.star-half {
+    color: #fbbf24;
+    fill: url(#half);
+}
+
+.stock-status {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.stock-status.in-stock {
+    color: #059669;
+}
+
+/* Product Options */
+.product-options {
+    margin-bottom: 1rem;
+}
+
+.option-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+}
+
+.color-options {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.color-option:hover {
+    border-color: #dc2626;
+}
+
+.color-option.active {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+}
+
+.color-preview {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.color-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.color-option span {
+    font-size: 0.75rem;
+    color: #4b5563;
+}
+
+/* Pricing Detail */
+.product-pricing-detail {
+    background: #fef2f2;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.price-main {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.current-price {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.original-price {
+    font-size: 1.125rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.discount-percent {
+    background: #dc2626;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+/* Action Buttons */
+.product-actions {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.btn-buy-now,
+.btn-add-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-buy-now {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-buy-now:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.btn-add-cart {
+    background: #0066cc;
+    color: white;
+}
+
+.btn-add-cart:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+}
+
+.btn-buy-now small,
+.btn-add-cart small {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-top: 0.25rem;
+    opacity: 0.9;
+}
+
+/* Product Policies */
+.product-policies {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.policy-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.policy-item svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #059669;
+    flex-shrink: 0;
+}
+
+/* Product Specs Section */
+.product-specs-section {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.specs-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.specs-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.spec-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+.spec-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.spec-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #dc2626;
+}
+
+.spec-info {
+    flex: 1;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.spec-value {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Related Products */
+.related-products-section {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .product-detail-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .specs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-detail-title {
+        font-size: 1.75rem;
+    }
+
+    .current-price {
+        font-size: 2.25rem;
+    }
+}
