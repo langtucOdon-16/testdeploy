@@ -1,0 +1,3 @@
+FROM tomcat:10.1
+
+COPY dist/Project_PRJ301_Group3.war /usr/local/tomcat/webapps/ROOT.war
