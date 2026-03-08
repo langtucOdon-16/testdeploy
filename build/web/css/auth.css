@@ -1,0 +1,177 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 7, 2026, 8:24:00 PM
+    Author     : GiangLT
+    Description : Định dạng giao diện cho các trang xác thực (Authentication)
+    bao gồm:
+    - Login
+    - Register
+    - Forgot Password
+    - Reset Password
+    - Verify OTP
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 40px 40px 20px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 0 40px 40px;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+.icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    background: #f5f5f5;
+    color: #333;
+}
+
+.btn-danger {
+    background: #e74c3c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 12px;
+    padding: 10px;
+    background: #fee;
+    border-radius: 6px;
+}
+
+.success-message {
+    color: #27ae60;
+    font-size: 13px;
+    margin-top: 12px;
+    padding: 10px;
+    background: #efe;
+    border-radius: 6px;
+}
+
+.footer-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-text a {
+    color: #dc2626;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-btn {
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.link-btn.disabled {
+    color: #aaa;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.link-btn.enabled {
+    color: #f4602a;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+

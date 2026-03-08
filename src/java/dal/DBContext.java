@@ -17,13 +17,22 @@ import java.util.logging.Logger;
  *
  * @author NamTQ
  * Date: 08/02/2026
- * Description: Connect to Database
- */
+ * Description: 
+ *  - DBContext is responsible for establishing a connection to the database.
+ *  - It loads database configuration from a properties file.
+ *  - All DAO classes extend this class to reuse the database connection.
+ */ 
 public class DBContext {
 
-    protected Connection connection;    
+    // Protected connection object so subclasses (DAO classes) can access it
+    public Connection connection;    
     
-    // Connect to Database ASSIGNMENT
+    /**
+     * Constructor:
+     *  - Loads database configuration from ConnectDB.properties file.
+     *  - Initializes SQL Server JDBC driver.
+     *  - Establishes database connection using DriverManager.
+     */
     public DBContext() {
         try {
             Properties properties = new Properties();       

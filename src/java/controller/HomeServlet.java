@@ -5,47 +5,80 @@
 
 package controller;
 
-import dao.BrandDAO;
 import dao.CategoryDAO;
-import dto.BrandDTO;
-import dto.CategoryDTO;
-import dto.CategoryWithCountDTO;
+import dao.ProductDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  *
-* @author NamTQ
+ * @author NamTQ
  * Date: 08/02/2026
- * Description: The Servlet coordinates the activities of the home page.
+ * Description: 
+ *  - HomeServlet acts as the Controller of the Home page.
+ *  - It coordinates between DAO layer and View (home.jsp).
+ *  - It retrieves featured categories and top products,
+ *    then forwards the data to the JSP page for rendering.
  */
 @WebServlet(name="HomeServlet", urlPatterns={"/HomeServlet"})
 public class HomeServlet extends HttpServlet {
    
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+    /**
+     * Processes requests for both HTTP GET and POST methods.Responsibilities:
+  - Load necessary data for the home page.- Set attributes into request scope.
+     *
+     * - Forward request to home.jsp.
+     *
+     * @param request  HttpServletRequest object
+     * @param response HttpServletResponse object
+     * @throws jakarta.servlet.ServletException
+     * @throws java.io.IOException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        loadCategoriesAndBrands(request);
+        // Load data for homepage
         loadFeaturedCategories(request);
+        loadTop10Products(request);
         
+        // Load data for homepage
         request.getRequestDispatcher("home.jsp").forward(request, response);
     } 
 
+    /**
+     * Load featured categories from database.
+     * 
+     * @param request HttpServletRequest object
+     *
+     * Business Logic:
+     *  - Calls CategoryDAO to retrieve featured categories.
+     *  - Stores result in request scope as "featuredCategories".
+     */
+    private void loadFeaturedCategories (HttpServletRequest request){
+        CategoryDAO categoryDAO = new CategoryDAO();
+        request.setAttribute("featuredCategories", categoryDAO.getFeaturedCategories());
+    }
+    
+    /**
+     * Load featured categories from database.
+     * 
+     * @param request HttpServletRequest object
+     *
+     * Business Logic:
+     *  - Calls CategoryDAO to retrieve featured categories.
+     *  - Stores result in request scope as "featuredCategories".
+     */
+    private void loadTop10Products (HttpServletRequest request){
+        ProductDAO productDAO = new ProductDAO();
+        request.setAttribute("top10HotDealProducts", productDAO.getTop10HotDealProducts());
+        request.setAttribute("top10SellingProducts", productDAO.getTop10SellingProducts());
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
@@ -81,25 +114,4 @@ public class HomeServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private void loadCategoriesAndBrands (HttpServletRequest request){
-        CategoryDAO categoryDAO = new CategoryDAO();
-        BrandDAO brandDAO = new BrandDAO();
-        
-        List<CategoryDTO> categoryList = categoryDAO.getAllCategory();
-        
-        Map<Integer, List<BrandDTO>> brandMap = new HashMap<>();
-        for (CategoryDTO categoryDTO : categoryList){
-            int key = categoryDTO.getCategoryId();
-            brandMap.put(key, brandDAO.getBrandsByCategoryId(key));
-        }
-        
-        request.setAttribute("categories", categoryList);
-        request.setAttribute("brands", brandMap);
-    }
-    
-    private void loadFeaturedCategories (HttpServletRequest request){
-        CategoryDAO categoryDAO = new CategoryDAO();
-        request.setAttribute("featuredCategories", categoryDAO.getFeaturedCategories());
-    }
 }

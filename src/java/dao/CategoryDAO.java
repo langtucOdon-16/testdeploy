@@ -5,26 +5,36 @@
 package dao;
 
 import dal.DBContext;
-import dto.CategoryDTO;
-import dto.CategoryWithCountDTO;
+import model.CategoryDTO;
+import model.CategoryWithCountDTO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
+ * Data Access Object for Category entity.
  *
+ * This class is responsible for retrieving Category-related data
+ * from the database.
+ *
+ * It extends {@link DBContext} to reuse the database connection.
+ * 
  * @author NamTQ
  * Date: 08/02/2026
- * Description: Communicate with the database to use and update Category data.
  */
 public class CategoryDAO extends DBContext{
     
+    /**
+     * Retrieves all categories ordered alphabetically by name.
+     *
+     * @return list of CategoryDTO
+     */
     public ArrayList<CategoryDTO> getAllCategory() {
         ArrayList<CategoryDTO> data = new ArrayList<>();
         try {
-            String strSQL = "SELECT * FROM Category;";
-            PreparedStatement stm = connection.prepareCall(strSQL);       
+            String strSQL = "SELECT * FROM Category ORDER BY categoryName ASC;";
+            PreparedStatement stm = connection.prepareStatement(strSQL);       
             ResultSet rs = stm.executeQuery();                          
             while (rs.next()) {
                 data.add(new CategoryDTO(
@@ -32,17 +42,30 @@ public class CategoryDAO extends DBContext{
                     rs.getNString("categoryName"))
                 );
             }
+            
+            rs.close();
+            stm.close();
         } catch (SQLException e) {
-            System.out.println("getCategory: " + e.getMessage());
+            System.out.println("getAllCategory: " + e.getMessage());
         }
         return data;
     }
     
+    /**
+     * Retrieves featured categories with the number of products
+     * in each category.
+     *
+     * This method queries a database view named
+     * featured_categories_view, which is expected
+     * to contain aggregated product count data.
+     *
+     * @return list of CategoryWithCountDTO
+     */
     public ArrayList<CategoryWithCountDTO> getFeaturedCategories() {
         ArrayList<CategoryWithCountDTO> data = new ArrayList<>();
         try {
             String strSQL = "SELECT * FROM featured_categories_view;";
-            PreparedStatement stm = connection.prepareCall(strSQL);       
+            PreparedStatement stm = connection.prepareStatement(strSQL);       
             ResultSet rs = stm.executeQuery();                          
             while (rs.next()) {
                 data.add(new CategoryWithCountDTO(
@@ -51,8 +74,11 @@ public class CategoryDAO extends DBContext{
                     rs.getInt("numberOfProducts"))
                 );
             }
+            
+            rs.close();
+            stm.close();
         } catch (SQLException e) {
-            System.out.println("getCategory: " + e.getMessage());
+            System.out.println("getFeaturedCategories: " + e.getMessage());
         }
         return data;
     }
